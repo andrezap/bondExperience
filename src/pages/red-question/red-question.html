@@ -1,0 +1,38 @@
+<ion-content padding  class="question">
+  <div *ngIf="question_01">
+    <h2>Question #1: Which STRUCTURE was seen in the background of this clip? </h2>
+
+    <ion-list>
+      <ion-item (click)="checkQuestion01('A')">
+        <h3>A) Green</h3>    
+      </ion-item>
+      <ion-item (click)="checkQuestion01('B')">
+        <h3>B) Yellow </h3>    
+      </ion-item>
+      <ion-item (click)="checkQuestion01('C')">
+        <h3>C) Red </h3>    
+      </ion-item>
+      <ion-item (click)="checkQuestion01('D')">
+        <h3>D) Blue </h3>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  <div *ngIf="!question_01">
+    <h2>Question #2: How many horse and carriage can be seen in this scene?</h2>
+    <ion-list>
+      <ion-item (click)="checkQuestion02('A')">
+        <h3>A) One</h3>    
+      </ion-item>
+      <ion-item (click)="checkQuestion02('B')">
+        <h3>B) Two</h3>    
+      </ion-item>
+      <ion-item (click)="checkQuestion02('C')">
+        <h3>C) Three</h3>    
+      </ion-item>
+      <ion-item (click)="checkQuestion02('D')">
+        <h3>D) Four</h3>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

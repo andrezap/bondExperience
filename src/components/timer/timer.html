@@ -1,0 +1,5 @@
+<div class="timer" *ngIf="timer">
+    <ion-item class="no-bottom-border item">
+        <button ion-button *ngIf="timeInSeconds && timeInSeconds > 0" large full clear class="timer-button timer-text">{{timer.displayTime}}</button>
+    </ion-item>
+</div>  

@@ -1,0 +1,22 @@
+page-red-code {
+    .insert-code {
+        font-size: 1.5em;
+        padding-left: 14em;
+        text-align: center;
+        display: flex;
+        ion-input {
+            .text-input-md {
+                margin: 0;            
+            }
+        }
+    }
+
+    .Y {
+        margin-right: 15em;
+    }
+
+
+    button {
+        padding-top: 2em;
+    }
+}

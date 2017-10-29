@@ -1,0 +1,13 @@
+<ion-content padding>
+  <div class="end-page">
+      <h1 text-center>Turn over your tablet</h1>
+      <h1 text-center><strong>Quick!</strong> Enter the code  in the field provided below</h1>
+
+      <form margin-top padding-top (ngSubmit)="chooseSide()">
+        <ion-item>
+          <ion-input autocapitalize="characters" placeholder="ENTER CODE HERE" type="text" [(ngModel)]="typedCode" name="code"></ion-input>
+        </ion-item>
+        <button block ion-button color="yellow" type="submit" >GO</button>
+      </form>
+    </div>
+</ion-content>

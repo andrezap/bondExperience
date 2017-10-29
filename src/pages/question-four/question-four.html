@@ -1,0 +1,66 @@
+<ion-content padding  class="question">
+    <timer class="hide"  #timer timeInSeconds="{{timerInSeconds}}"></timer>
+  
+    <div *ngIf="question_01">
+      <h2>QUESTION #1: Which STRUCTURE was seen in the background of this clip?</h2>
+  
+      <ion-list>
+        <ion-item (click)="checkQuestion01('A')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L4/Q1_A.JPG"/>
+          </ion-thumbnail>
+          <h3>A) SENIOR FROGS</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion01('B')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L4/Q1_B.JPG"/>
+          </ion-thumbnail>
+          <h3>B) Scotia Bank Building</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion01('C')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L4/Q1_C.JPG"/>
+          </ion-thumbnail>
+          <h3>C) The Straw Market</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion01('D')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L4/Q1_D.JPG"/>
+          </ion-thumbnail>
+          <h3>D) The Churchill Building</h3>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <div *ngIf="question_02">
+      <h2>QUESTION #2: True or False: The character FELIX LEITER was in at least 10 James Bond movies?</h2>
+      <ion-list>
+        <ion-item (click)="checkQuestion02('A')">
+          <h3>A) True</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion02('B')">
+          <h3>B) False</h3>    
+        </ion-item>      
+      </ion-list>
+    </div>
+    
+    <div *ngIf="question_bonus">
+      <h2>BONUS QUESTION: What colors were on the Umbrella in the shot?</h2>
+      <ion-list>
+        <ion-item (click)="checkBonusQuestion('A')">
+          <h3>A) White and Blue</h3>    
+        </ion-item>
+        <ion-item (click)="checkBonusQuestion('B')">
+          <h3>B) White and Black</h3>    
+        </ion-item>      
+        <ion-item (click)="checkBonusQuestion('C')">
+          <h3>C) White and Red</h3>    
+        </ion-item>      
+        <ion-item (click)="checkBonusQuestion('D')">
+          <h3>D) White and Yellow</h3>    
+        </ion-item>      
+      </ion-list>
+    </div>
+  
+  
+  </ion-content>

@@ -1,0 +1,14 @@
+<ion-content padding>
+  <div>
+    <h4 text-center>Check your results!</h4>
+    <ion-list *ngFor="let question of questions">  
+      <div [ngClass]="getClass(question)">
+        <ion-item>Location : {{question.location}}</ion-item>
+        <ion-item>Question : {{question.question}}</ion-item>
+        <ion-item>{{question.right == "true" ? "Correct Answer" : "Wrong Answer"}} </ion-item>
+        <ion-item>Time : {{question.timer}} </ion-item>
+      </div>
+    </ion-list>   
+    <button ion-button  block color="red" (click)="finalizar()" class="btn">Ok</button>
+  </div>
+</ion-content> 

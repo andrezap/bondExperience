@@ -1,0 +1,34 @@
+page-first-location {
+    #map_first_location {
+        height: 100%;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: -1.3em;
+        .timer {
+            flex: 1;
+            margin-top: -0.8em;
+        }
+
+        .typing {
+            flex: 1;
+            margin-bottom: 1.2em;
+        }
+    }
+
+    .timer-button {
+        font-size: 5rem !important;
+        height: 1em !important;
+    }
+
+    .no-bottom-border.item .item-inner {
+        border-bottom: none !important;
+    }
+
+    .pin-text {
+        background: #464646;
+        color: white;
+    }
+}

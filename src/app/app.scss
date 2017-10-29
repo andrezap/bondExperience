@@ -1,0 +1,160 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+ion-content:not(.not-black){
+    background: #464646 !important;
+    color: white;
+    border: 3px solid color($colors, primary);
+}
+
+.timer {  
+  margin-left: -2em;  
+  .no-bottom-border.item .item-inner {
+      border-bottom: none !important;
+      background-color: #464646 !important;
+      color: white !important;
+      padding-left: 0 !important;
+  }
+}
+
+.scroll-content { padding-bottom: 0!important; }
+
+[padding] h1:first-child, [padding] h2:first-child, [padding] h3:first-child, [padding] h4:first-child, [padding] h5:first-child, [padding] h6:first-child
+{
+  margin-top: 0 !important;
+}
+.question {
+  h2 {
+    margin-top: .5em;
+  }
+  ion-item {
+    background: #464646;
+    border: 1px solid #5681a8;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: white;
+    .list-md .item-block .item-inner {
+      border-bottom: transparent !important;
+    }
+  }
+}
+
+.css-typing {
+  .text {
+    display: table;
+    margin: 0 auto;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+ion-modal > .modal-wrapper{
+  background-color: white;
+  border-radius: 3px !important;
+}
+
+.margin-top-10 {
+    margin-top: 10em;
+}
+
+.start {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 1em;
+    right: 1em;
+}
+
+.css-typing .text p {
+    font-size: 1em;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: type2 2s steps(40, end);
+    -webkit-animation: type2 2s steps(40, end);
+
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.css-typing .text:first-child p {
+  text-transform: uppercase;
+}
+
+.css-typing .text:nth-child(2) p {
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 2em;
+  opacity: 0;
+  animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+}
+
+.css-typing .text:nth-child(3) p {
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  margin-bottom: 0;
+  animation-delay: 4s;
+  -webkit-animation-delay: 4s;
+}
+
+.css-typing .text:nth-child(4) p {
+  margin-top: 0;  
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  margin-bottom: 0;
+  animation-delay: 6s;
+  -webkit-animation-delay: 6s;
+}
+
+.css-typing .text:nth-child(5) p {
+  margin-top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  animation-delay: 8s;  
+  -webkit-animation-delay: 8s;
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  from {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+ion-item ion-thumbnail img {
+      width: 176px !important;
+      height: 160px !important; 
+  }

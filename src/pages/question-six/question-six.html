@@ -1,0 +1,52 @@
+<ion-content padding  class="question">
+    <timer class="hide"  #timer timeInSeconds="{{timerInSeconds}}"></timer>
+  
+    <div *ngIf="question_01">
+      <h2>Question #1: Which STRUCTURE was seen in the background of the beginning of this clip? </h2>
+  
+      <ion-list>
+        <ion-item (click)="checkQuestion01('A')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L6/Q1_A.JPG"/>
+          </ion-thumbnail>
+          <h3>A) Road Traffic Building</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion01('B')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L6/Q1_B.jpg"/>
+          </ion-thumbnail>
+          <h3>B) An Arch on the Churchill Building</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion01('C')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L6/Q1_C.JPG"/>
+          </ion-thumbnail>
+          <h3>C) Lion and Horse Sculpture </h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion01('D')">
+          <ion-thumbnail item-start>
+            <img src="./assets/images/L6/Q1_D.JPG"/>
+          </ion-thumbnail>
+          <h3>D) The Masonic Building</h3>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <div *ngIf="!question_01">
+      <h2>Question #2: Who is the man, in real life, that comes to greet James Bond?</h2>
+      <ion-list>
+        <ion-item (click)="checkQuestion02('A')">
+          <h3>A) Rolando Villazon, a.k.a the French Tenor</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion02('B')">
+          <h3>B) Joe Jonas, a.k.a the Middle Brother of the Jonas Brothers</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion02('C')">
+          <h3>C) Rowan Atkinson, a.k.a Mr. Bean</h3>    
+        </ion-item>
+        <ion-item (click)="checkQuestion02('D')">
+          <h3>D) Hugh Laurie, a.k.a Dr. House</h3>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>

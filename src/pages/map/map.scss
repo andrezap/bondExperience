@@ -1,0 +1,49 @@
+page-map {
+    .red-pin {
+        background: #464646 !important;
+        padding: .2em;
+        color: white;
+        p {
+            margin: 7px;
+            font-size: 1.5em;
+            &:last-child {
+                color: color($colors, red, base);
+            }
+        }
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: -1.3em;
+        .timer {
+            flex: 1;
+            margin-top: -0.8em;
+        }
+
+        .typing {
+            flex: 1;
+            margin-bottom: 1.1em;
+        }
+    }
+
+    .timer-button {
+        font-size: 5rem !important;
+        height: 1em !important;
+    }
+
+    #map {
+        height: 100%;
+    }
+
+    h1:nth-child(2) {        
+        color: #e75c23;
+        margin-bottom: 1em;
+    }
+
+    .pin-text {
+        background: #464646;
+        color: white;
+    }
+
+}

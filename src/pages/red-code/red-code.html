@@ -1,0 +1,17 @@
+<ion-content padding>
+    <div class="error" *ngIf="error">Wrong Code</div>
+    <div>
+      <p text-center>Fill the spaces above to complete the code </p>
+      <form margin-top padding-top (ngSubmit)="checkCode()">
+        <div class="insert-code">
+          <span>LE</span>
+          <ion-input  autocapitalize="characters"  
+                        placeholder="_ _" type="text"
+                      maxlength="2" [(ngModel)]="typedCode" name="code">
+          </ion-input>
+          <span class="Y">Y</span>
+        </div>
+        <button block ion-button color="blue" type="submit" >Check</button>
+      </form>
+    </div>
+  </ion-content>

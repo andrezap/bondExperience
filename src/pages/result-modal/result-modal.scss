@@ -1,0 +1,58 @@
+page-result-modal {
+
+    ion-modal {
+        padding: 2em 3em 2em 3em;
+    }
+
+    .color-one {
+        ion-item {
+            background: #638397;
+            color: white;
+        }
+    }
+
+    .color-two {
+        ion-item {
+            background: #216189;
+            color: white;
+        }
+    }
+
+    .color-three {
+        ion-item {
+            background: #a2a3cd;
+            color: white;
+        }
+    }
+
+    .color-four {
+        ion-item {
+            background: #2c7fb4;
+            color: white;
+        }
+    }
+
+    .color-five {
+        ion-item {
+            background: #32a0b8;
+            color: white;
+        }
+    }
+
+    .color-six {
+        ion-item {
+            background: #2c5764;
+            color: white;
+        }
+    }
+
+    .wrong {
+        color: red;
+        font-weight: bold;
+    }
+
+    .correct {
+        color: green;
+        font-weight: bold;
+    }
+}

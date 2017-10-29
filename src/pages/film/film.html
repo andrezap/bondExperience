@@ -1,0 +1,21 @@
+<ion-content padding>
+    <timer #timer timeInSeconds="{{timerInSeconds}}" class="hide" ></timer>
+    
+    <div class="css-typing header">
+      <p> Watch Closely </p>
+    </div>
+  
+    <div *ngIf="showVideo">
+      <ion-grid>
+        <ion-row>
+          <video width="500" height="200" class="video" controls autoplay (ended)="showQuestions()">
+            <source [src]="videoByCode" type="video/mp4">    
+          </video>
+        </ion-row>
+        <ion-row>
+          <p class="fullsize-info"> Touch the video and press the icon <img alt="fullscreen icon" src="./assets/icon/fullscreen.png"> for full size</p>
+          <ion-icon class="arrow" name="arrow-round-up" float-right></ion-icon>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>

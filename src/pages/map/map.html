@@ -1,0 +1,17 @@
+<ion-content class="not-black">
+    <div *ngIf="!pinNumber" class="red-pin">
+      <p text-center>Only when your agent says so, push the</p>
+      <p text-center>RED PIN</p>
+    </div>
+  
+    <div class="header" *ngIf="pinNumber">
+      <div class="timer">  
+        <timer class="timer" #timer timeInSeconds="{{timerInSeconds}}"></timer>
+      </div>
+      <div class="typing pin-text pinNumber">
+        <h1 text-center>Press pin # {{pinNumber}}</h1>
+      </div>
+    </div>
+  
+    <div #map id="map"></div>   
+  </ion-content>
