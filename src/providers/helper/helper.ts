@@ -6,7 +6,7 @@ export class HelperProvider {
   static readonly AGENT = 1;
   static readonly ROUGE = 2;
 
-  static readonly INITIAL_CODE = 'RO';
+  static readonly INITIAL_CODE = '24';
   
   static readonly AGENT_CODE_01 = 'AAA';
   static readonly AGENT_CODE_02 = 'BBB';

@@ -8,7 +8,7 @@
     <div *ngIf="showVideo">
       <ion-grid>
         <ion-row>
-          <video width="500" height="200" class="video" controls autoplay (ended)="showQuestions()">
+          <video #videoPlayer width="500" height="200" class="video" controls autoplay (ended)="showQuestions()">
             <source [src]="videoByCode" type="video/mp4">    
           </video>
         </ion-row>

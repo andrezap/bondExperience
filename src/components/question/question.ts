@@ -12,6 +12,8 @@ export class QuestionComponent {
   private location;
   private _timer;
 
+  private blockApp = false;
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, 
     public modalCtrl: ModalController, public navParams : NavParams, public database : DatabaseProvider) {
       this.location = this.navParams.get('location');
@@ -24,16 +26,33 @@ export class QuestionComponent {
   ionViewDidLoad() {
     this._timer.startTimer();
   }
+
+  presentAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'APP BLOCKED',
+      subTitle: "Sorry, the app is blocked, you can't go through",
+      buttons: ['Ok']
+    });
+    alert.present();
+    alert.onDidDismiss(() => {
+      localStorage.clear();
+      this.navCtrl.push('HomePage');
+    });
+  }
     
   moveToNextPage() {
-    if(localStorage['lastIndex'] == this.INDEX_LAST_ROUTE) {
-      this.navCtrl.push('FinishPage', {
-        timer : this._timer.timerRemaining()
-      });
+    if(this.blockApp) {
+      this.presentAlert();
     } else {
-      this.navCtrl.push('MapPage', {
-        timer : this._timer.timerRemaining()
-      });
+      if(localStorage['lastIndex'] == this.INDEX_LAST_ROUTE) {
+        this.navCtrl.push('FinishPage', {
+          timer : this._timer.timerRemaining()
+        });
+      } else {
+        this.navCtrl.push('MapPage', {
+          timer : this._timer.timerRemaining()
+        });
+      }
     }
   }
 

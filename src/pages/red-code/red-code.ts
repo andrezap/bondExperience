@@ -11,18 +11,15 @@ export class RedCodePage {
 
   private typedCode : string;
   public error : boolean;
-  public showVideo : boolean;
-
+  public errorMsg : string;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public codeProvider : CodeProvider) {
     this.error = false;
-    this.showVideo = false;
+    this.errorMsg = "Wrong code, try again!";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RedCodePage');
-    setTimeout(() => {
-      this.showVideo = true;
-    }, 2000);
   }
 
   checkCode() {

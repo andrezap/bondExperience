@@ -12,6 +12,7 @@ import { TimerComponent } from '../../components/timer/timer';
 export class FilmPage {
 
   @ViewChild(TimerComponent) timer: TimerComponent;
+  @ViewChild('videoPlayer') videoPlayer : any;
   private showVideo: boolean;
   private videoByCode: string;
   private timerInSeconds : number;
@@ -38,6 +39,8 @@ export class FilmPage {
   }
 
   showQuestions() {
+    let video1 = this.videoPlayer.nativeElement;
+    video1.webkitExitFullscreen();
     switch(this.navParam.get('nextQuestion')) {
       case '02' :
         return this.goToQuestion('QuestionOnePage');

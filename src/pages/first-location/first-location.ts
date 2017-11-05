@@ -26,6 +26,7 @@ export class FirstLocationPage {
   private locations;
   private image : any;
   private pinStart : string;
+  private initalLocation = [25.078295, -77.340429];
   public  timerInSeconds : number = 1800;
   
   constructor(public navCtrl: NavController, public locationProvider: LocationProvider, 
@@ -87,30 +88,41 @@ export class FirstLocationPage {
       });
     });
   }
-  
 
-  addLocationsOnMap() {
-    for (let i = 0; i < this.locations.length; i++) {  
-      this.map.addMarker({
-        icon: {
-          url : HelperProvider.getMarker(this.locations[i]),
-          size: {
+  addMarker(location, icon, callback) {
+    this.map.addMarker({
+      icon: {
+        url : icon,
+        size: {
           width: 60,
           height: 60
-        },        
+        }
       },
       position: {
-        lat: this.locations[i][0],
-        lng: this.locations[i][1]
+        lat: location[0],
+        lng: location[1]
       },
       disableAutoPan: true
-      }).then((marker: Marker) => {        
-          marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((params) => {
-            if (this.locations[i][0] == this.startlocation.location[0] && this.locations[i][1] == this.startlocation.location[1]) {
-              this.presentAlertModal();
-            }
-          });
+    }).then((marker: Marker) => {
+      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe((params) => {
+          callback();
       });
+    });
+  }
+
+
+  addLocationsOnMap() {
+    for (let i = 0; i < this.locations.length; i++) {
+      if(this.locations[i][0] == this.initalLocation[0] && this.locations[i][1] == this.initalLocation[1]) {  
+        this.addMarker(this.locations[i],'assets/icon/marker-red.png', () => this.navCtrl.push('RedImagePage'));
+      } else {
+        this.addMarker(this.locations[i],  HelperProvider.getMarker(this.locations[i]), ()=> {
+            if (this.locations[i][0] == this.startlocation.location[0] && 
+                  this.locations[i][1] == this.startlocation.location[1]) {
+            this.presentAlertModal();
+          }
+        });
+      }
     }
   }
 }
