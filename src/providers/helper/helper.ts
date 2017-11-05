@@ -8,19 +8,33 @@ export class HelperProvider {
 
   static readonly INITIAL_CODE = '24';
   
-  static readonly AGENT_CODE_01 = 'AAA';
-  static readonly AGENT_CODE_02 = 'BBB';
-  static readonly AGENT_CODE_03 = 'GGG';
-  static readonly AGENT_CODE_04 = 'HHH';
-  static readonly AGENT_CODE_05 = 'III';
-  static readonly AGENT_CODE_06 = 'JJJ';
+  static readonly AGENT_CODE_EXPIRES_01 = 'AAA';
+  static readonly AGENT_CODE_EXPIRES_02 = 'BBB';
+  static readonly AGENT_CODE_EXPIRES_03 = 'GGG';
+  static readonly AGENT_CODE_EXPIRES_04 = 'HHH';
+  static readonly AGENT_CODE_EXPIRES_05 = 'III';
+  static readonly AGENT_CODE_EXPIRES_06 = 'JJJ';
 
-  static readonly ROUGE_CODE_01 = 'DDD';
-  static readonly ROUGE_CODE_02 = 'EEE';
-  static readonly ROUGE_CODE_03 = 'FFF';
-  static readonly ROUGE_CODE_04 = 'MMM';
-  static readonly ROUGE_CODE_05 = 'NNN';
-  static readonly ROUGE_CODE_06 = 'LLL';
+  static readonly ROUGE_CODE_EXPIRES_01 = 'DDD';
+  static readonly ROUGE_CODE_EXPIRES_02 = 'EEE';
+  static readonly ROUGE_CODE_EXPIRES_03 = 'FFF';
+  static readonly ROUGE_CODE_EXPIRES_04 = 'MMM';
+  static readonly ROUGE_CODE_EXPIRES_05 = 'NNN';
+  static readonly ROUGE_CODE_EXPIRES_06 = 'LLL';
+  
+  static readonly AGENT_CODE_01 = 'AZAZER';
+  static readonly AGENT_CODE_02 = 'EXOGOF';
+  static readonly AGENT_CODE_03 = 'OGATIM';
+  static readonly AGENT_CODE_04 = 'URIDUM';
+  static readonly AGENT_CODE_05 = 'IWODOT';
+  static readonly AGENT_CODE_06 = 'UCOMAR';
+
+  static readonly ROUGE_CODE_01 = 'UCERUL';
+  static readonly ROUGE_CODE_02 = 'IKEMIC';
+  static readonly ROUGE_CODE_03 = 'EMENUC';
+  static readonly ROUGE_CODE_04 = 'AKESEL';
+  static readonly ROUGE_CODE_05 = 'AVIGES';
+  static readonly ROUGE_CODE_06 = 'ABOQOR';
 
   static readonly LOCATION_01 = [25.078295, -77.340429];
   static readonly LOCATION_02 = [25.07875, -77.33967];
@@ -52,6 +66,11 @@ export class HelperProvider {
   static readonly CODE_IMG_05 = "AT";
   static readonly CODE_IMG_06 = "IANTI";
   
+  static codesWillExpire() {
+    return [HelperProvider.AGENT_CODE_EXPIRES_01, HelperProvider.AGENT_CODE_EXPIRES_02, HelperProvider.AGENT_CODE_EXPIRES_03, HelperProvider.AGENT_CODE_EXPIRES_04, HelperProvider.AGENT_CODE_EXPIRES_05,
+    HelperProvider.ROUGE_CODE_EXPIRES_01, HelperProvider.ROUGE_CODE_EXPIRES_02, HelperProvider.ROUGE_CODE_EXPIRES_03, HelperProvider.ROUGE_CODE_EXPIRES_04, HelperProvider.ROUGE_CODE_EXPIRES_05];
+  }
+
   static getMarker(location) {
        switch(JSON.stringify(location)) {
            case JSON.stringify(this.LOCATION_01) :
@@ -72,7 +91,7 @@ export class HelperProvider {
   }
 
   static getCodes() {
-      return [HelperProvider.AGENT_CODE_01, HelperProvider.AGENT_CODE_02, HelperProvider.AGENT_CODE_03, HelperProvider.AGENT_CODE_04, HelperProvider.AGENT_CODE_05,
+    return [HelperProvider.AGENT_CODE_01, HelperProvider.AGENT_CODE_02, HelperProvider.AGENT_CODE_03, HelperProvider.AGENT_CODE_04, HelperProvider.AGENT_CODE_05,
        HelperProvider.AGENT_CODE_06, HelperProvider.ROUGE_CODE_01, HelperProvider.ROUGE_CODE_02, HelperProvider.ROUGE_CODE_03, HelperProvider.ROUGE_CODE_04,
        HelperProvider.ROUGE_CODE_05, HelperProvider.ROUGE_CODE_06];
   }
@@ -143,7 +162,6 @@ export class HelperProvider {
   }
 
   static getTimer(item) {
-      debugger;
     let begin = item.begin;
     let end = item.end;
     let result = begin - end;
