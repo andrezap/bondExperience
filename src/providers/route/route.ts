@@ -19,32 +19,30 @@ export class RouteProvider {
   private readonly AGENT_06_ROUTE = ["07", "05", "02", "03", "06"];
 
   getRouteByCode(code) {
-    switch(code) {
-      case HelperProvider.AGENT_CODE_01 :
+      if(HelperProvider.AGENT_CODE_01 || HelperProvider.AGENT_CODE_EXPIRES_01)
         return this.AGENT_01_ROUTE;
-      case HelperProvider.AGENT_CODE_02 :
+      if(HelperProvider.AGENT_CODE_02 || HelperProvider.AGENT_CODE_EXPIRES_02)
         return this.AGENT_02_ROUTE;
-      case HelperProvider.AGENT_CODE_03 :
+      if(HelperProvider.AGENT_CODE_03 || HelperProvider.AGENT_CODE_EXPIRES_03)
         return this.AGENT_03_ROUTE;
-      case HelperProvider.AGENT_CODE_04 :
+      if(HelperProvider.AGENT_CODE_04 || HelperProvider.AGENT_CODE_EXPIRES_04)
         return this.AGENT_04_ROUTE;
-      case HelperProvider.AGENT_CODE_05 :
+      if(HelperProvider.AGENT_CODE_05 || HelperProvider.AGENT_CODE_EXPIRES_05)
         return this.AGENT_05_ROUTE;
-      case HelperProvider.AGENT_CODE_06 :
+      if(HelperProvider.AGENT_CODE_06 || HelperProvider.AGENT_CODE_EXPIRES_06)
         return this.AGENT_06_ROUTE;
-      case HelperProvider.ROUGE_CODE_01 :
+      if(HelperProvider.ROUGE_CODE_01 || HelperProvider.ROUGE_CODE_EXPIRES_01)
         return this.ROUGE_01_ROUTE;
-      case HelperProvider.ROUGE_CODE_02 :
+      if(HelperProvider.ROUGE_CODE_02 || HelperProvider.ROUGE_CODE_EXPIRES_02)
         return this.ROUGE_02_ROUTE;
-      case HelperProvider.ROUGE_CODE_03 :
+      if(HelperProvider.ROUGE_CODE_03 || HelperProvider.ROUGE_CODE_EXPIRES_03)
         return this.ROUGE_03_ROUTE;
-      case HelperProvider.ROUGE_CODE_04 :
+      if(HelperProvider.ROUGE_CODE_04 || HelperProvider.ROUGE_CODE_EXPIRES_04)
         return this.ROUGE_04_ROUTE;
-      case HelperProvider.ROUGE_CODE_05 :
+      if(HelperProvider.ROUGE_CODE_05 || HelperProvider.ROUGE_CODE_EXPIRES_05)
         return this.ROUGE_05_ROUTE;
-      case HelperProvider.ROUGE_CODE_06 :
+      if(HelperProvider.ROUGE_CODE_06 || HelperProvider.ROUGE_CODE_EXPIRES_06)
         return this.ROUGE_06_ROUTE;
-    }
   }
 
 }

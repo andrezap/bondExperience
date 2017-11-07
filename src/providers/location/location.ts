@@ -26,32 +26,31 @@ export class LocationProvider {
 
   getStartLocation() {
     let code = localStorage['code'];
-    switch(code) {
-      case HelperProvider.AGENT_CODE_01 :
-      return {'location' : HelperProvider.LOCATION_05, 'pin' : 5 };
-      case HelperProvider.AGENT_CODE_02 :
-      return {'location' : HelperProvider.LOCATION_07, 'pin' : 7 };
-      case HelperProvider.AGENT_CODE_03 :
-      return {'location' : HelperProvider.LOCATION_02, 'pin' : 2 };
-      case HelperProvider.AGENT_CODE_04 :
-      return {'location' : HelperProvider.LOCATION_03, 'pin' : 3 };
-      case HelperProvider.AGENT_CODE_05 :
-      return {'location' : HelperProvider.LOCATION_06, 'pin' : 6 };
-      case HelperProvider.AGENT_CODE_06 :
-      return {'location' : HelperProvider.LOCATION_04, 'pin' : 4 };
-      case HelperProvider.ROUGE_CODE_01 :
-      return {'location' : HelperProvider.LOCATION_04, 'pin' : 4 };
-      case HelperProvider.ROUGE_CODE_02 :
-      return {'location' : HelperProvider.LOCATION_06, 'pin' : 6 };
-      case HelperProvider.ROUGE_CODE_03 :
-      return {'location' : HelperProvider.LOCATION_03, 'pin' : 3 };
-      case HelperProvider.ROUGE_CODE_04 :
-      return {'location' : HelperProvider.LOCATION_02, 'pin' : 2 };
-      case HelperProvider.ROUGE_CODE_05 :
-      return {'location' : HelperProvider.LOCATION_07, 'pin' : 7 };
-      case HelperProvider.ROUGE_CODE_06 :
-      return {'location' : HelperProvider.LOCATION_06, 'pin' : 6 };
-    }
+    
+      if(HelperProvider.AGENT_CODE_01 || HelperProvider.AGENT_CODE_EXPIRES_01)
+        return {'location' : HelperProvider.LOCATION_05, 'pin' : 5 };
+      if(HelperProvider.AGENT_CODE_02 || HelperProvider.AGENT_CODE_EXPIRES_02)
+        return {'location' : HelperProvider.LOCATION_07, 'pin' : 7 };
+      if(HelperProvider.AGENT_CODE_03 || HelperProvider.AGENT_CODE_EXPIRES_03)
+        return {'location' : HelperProvider.LOCATION_02, 'pin' : 2 };
+      if(HelperProvider.AGENT_CODE_04 || HelperProvider.AGENT_CODE_EXPIRES_04)
+        return {'location' : HelperProvider.LOCATION_03, 'pin' : 3 };
+      if(HelperProvider.AGENT_CODE_05 || HelperProvider.AGENT_CODE_EXPIRES_05)
+        return {'location' : HelperProvider.LOCATION_06, 'pin' : 6 };
+      if(HelperProvider.AGENT_CODE_06 || HelperProvider.AGENT_CODE_EXPIRES_06)
+        return {'location' : HelperProvider.LOCATION_04, 'pin' : 4 };
+      if(HelperProvider.ROUGE_CODE_01 || HelperProvider.ROUGE_CODE_EXPIRES_01)
+        return {'location' : HelperProvider.LOCATION_04, 'pin' : 4 };
+      if(HelperProvider.ROUGE_CODE_02 || HelperProvider.ROUGE_CODE_EXPIRES_02)
+        return {'location' : HelperProvider.LOCATION_06, 'pin' : 6 };
+      if(HelperProvider.ROUGE_CODE_03 || HelperProvider.ROUGE_CODE_EXPIRES_03)
+        return {'location' : HelperProvider.LOCATION_03, 'pin' : 3 };
+      if(HelperProvider.ROUGE_CODE_04 || HelperProvider.ROUGE_CODE_EXPIRES_04)
+        return {'location' : HelperProvider.LOCATION_02, 'pin' : 2 };
+      if(HelperProvider.ROUGE_CODE_05 || HelperProvider.ROUGE_CODE_EXPIRES_05)
+        return {'location' : HelperProvider.LOCATION_07, 'pin' : 7 };
+      if(HelperProvider.ROUGE_CODE_06 || HelperProvider.ROUGE_CODE_EXPIRES_06)
+        return {'location' : HelperProvider.LOCATION_06, 'pin' : 6 };
   }
 
   getLocationByIndex(index) {
