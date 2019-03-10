@@ -1,54 +1,49 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, ModalController, AlertController, IonicPage ,NavParams } from 'ionic-angular';
-import { QuestionComponent } from '../../components/question/question';
-import { DatabaseProvider } from '../../providers/database/database';
-import { TimerComponent } from '../../components/timer/timer';
+import { Component, ViewChild, ElementRef } from "@angular/core";
+import {
+  NavController,
+  ModalController,
+  AlertController,
+  IonicPage,
+  NavParams
+} from "ionic-angular";
+import { QuestionComponent } from "../../components/question/question";
+import { VideoProvider } from "../../providers/video/video";
+import { AudioProvider } from "../../providers/audio/audio";
+import { AnswersProvider } from "../../providers/answers/answers";
+import { LocationProvider } from "../../providers/location/location";
 
 @IonicPage()
 @Component({
-  selector: 'page-question-five',
-  templateUrl: 'question-five.html',
+  selector: "page-question-five",
+  templateUrl: "question-five.html"
 })
-export class QuestionFivePage  extends QuestionComponent {
+export class QuestionFivePage extends QuestionComponent {
+  public showVideo: boolean;
 
-  @ViewChild(TimerComponent) timer: TimerComponent;
-  private question_01 : boolean;
-  private readonly RIGHT_ANSWER_01 = "D"; 
-  private readonly RIGHT_ANSWER_02 = "B";
-  private timerInSeconds : number;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-    public modalCtrl: ModalController, public database : DatabaseProvider) {
-      super(navCtrl, alertCtrl, modalCtrl, navParams, database);          
-      this.question_01 = true;      
-      this.timerInSeconds = this.navParams.get('timer');
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController,
+    public answersProvider: AnswersProvider,
+    public audioProvider: AudioProvider,
+    public videoProvider: VideoProvider,
+    public locationProvider: LocationProvider
+  ) {
+    super(navCtrl, alertCtrl, modalCtrl, navParams, locationProvider);
+    this.answersA = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_5_A);
+    this.answersB = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_5_B);
+    this.showVideo = false;
+    this.enableQuestions = false;
+    this.rightItemA = -1;
+    this.rightItemB = -1;
+    this.rightAnswer = answersProvider.RIGHT_ANSWER_5;
   }
 
   ionViewDidLoad() {
-    this.setTimer(this.timer);
-    this.timer.startTimer();
+    this.audioProvider.playFilmMsg();
+    setTimeout(() => {
+      this.showVideo = true;
+    }, 2000);
   }
-
- 
-  checkQuestion01(letter) {
-    let msg = "Incorrect Answer";
-    let right = false;
-    if(letter == this.RIGHT_ANSWER_01) {
-      msg = "Correct Answer";
-      right = true;
-    }
-    this.showPrompt(1, msg, right, "5", false,  () => this.question_01 = false);  
-  }
-
-  checkQuestion02(letter) {    
-    let msg = "Incorrect Answer";
-    let right = false;
-    if(letter == this.RIGHT_ANSWER_02) {
-      msg = "Correct Answer";
-      right = true;      
-    } 
-    this.showPrompt(2, msg, right, null, true, () => null);
-  }  
-  
-
 }

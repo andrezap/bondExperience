@@ -3,7 +3,7 @@
     <name>Bond Experience</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.178.62:8108" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -13,7 +13,7 @@
     <allow-intent href="geo:*" />
     <preference name="orientation" value="landscape" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
@@ -78,7 +78,6 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.0.11">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyA8LjnoZ51lSN_3eOPigbswD8M24ETLDEs" />
@@ -90,4 +89,26 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="cordova-sqlite-storage" spec="^2.0.4" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <allow-navigation href="http://192.168.178.62:8100" />
+    <allow-navigation href="http://192.168.178.62:8101" />
+    <allow-navigation href="http://192.168.178.62:8102" />
+    <allow-navigation href="http://192.168.178.62:8103" />
+    <allow-navigation href="http://192.168.178.62:8104" />
+    <allow-navigation href="http://192.168.178.62:8105" />
+    <allow-navigation href="http://192.168.178.62:8106" />
+    <allow-navigation href="http://192.168.178.62:8107" />
+    <allow-navigation href="http://192.168.178.62:8108" />
+    <allow-navigation href="http://192.168.178.62:8109" />
+    <allow-navigation href="http://192.168.178.62:8110" />
+    <allow-navigation href="http://192.168.178.62:8111" />
+    <allow-navigation href="http://192.168.178.62:8112" />
+    <allow-navigation href="http://192.168.178.62:8113" />
+    <allow-navigation href="http://192.168.178.62:8114" />
+    <allow-navigation href="http://192.168.178.62:8115" />
+    <allow-navigation href="http://192.168.178.62:8116" />
+    <allow-navigation href="http://192.168.178.62:8117" />
+    <allow-navigation href="http://192.168.178.62:8118" />
+    <allow-navigation href="http://192.168.178.62:8119" />
+    <allow-navigation href="http://192.168.178.62:8120" />
+    <engine name="android" spec="6.4.0" />
 </widget>

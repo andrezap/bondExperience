@@ -1,46 +1,98 @@
-<ion-content padding  class="question">
-    <timer class="hide"  #timer timeInSeconds="{{timerInSeconds}}"></timer>
-  
-    <div *ngIf="question_01">
-      <h2>Question #1: Which STRUCTURE was seen in the background of this clip? </h2>
-  
-      <ion-list>
-        <ion-item (click)="checkQuestion01('A')">
-          <ion-thumbnail item-start>
-            <img src="./assets/images/L3/Q1_A.JPG"/>
-          </ion-thumbnail>
-          <h3>A) Random Downtown Building:</h3>    
-        </ion-item>
-        <ion-item (click)="checkQuestion01('B')">
-          <ion-thumbnail item-start>
-            <img src="./assets/images/L3/Q1_B.JPG"/>
-          </ion-thumbnail>
-          <h3>B) British Colonial Hilton</h3>    
-        </ion-item>
-        <ion-item (click)="checkQuestion01('C')">
-          <ion-thumbnail item-start>
-            <img src="./assets/images/L3/Q1_C.JPG"/>
-          </ion-thumbnail>
-          <h3>C) C.	Door to a building:</h3>    
-        </ion-item>
-        <ion-item (click)="checkQuestion01('D')">
-          <ion-thumbnail item-start>
-            <img src="./assets/images/L3/Q1_D.JPG"/>
-          </ion-thumbnail>
-          <h3>D) Festival building along pier</h3>
-        </ion-item>
-      </ion-list>
-    </div>
-  
-    <div *ngIf="!question_01">
-      <h2>Question #2: True or False, the area where the boat that James Bond is on, is now filled with concrete?</h2>
-      <ion-list>
-        <ion-item (click)="checkQuestion02('A')">
-          <h3>A) True</h3>    
-        </ion-item>
-        <ion-item (click)="checkQuestion02('B')">
-          <h3>B) False</h3>    
-        </ion-item>
-      </ion-list>
-    </div>
-  </ion-content>
+<ion-content padding class="question">
+  <div class="css-typing header">
+    <p>Watch Closely</p>
+  </div>
+
+  <div class="video" *ngIf="showVideo">
+    <ion-grid>
+      <ion-row>
+        <video
+          #videoPlayer
+          width="520"
+          height="220"
+          controls
+          autoplay
+          (ended)="showQuestions()"
+        >
+          <source src="./assets/videos/BondClip2.3gp" type="video/mp4" />
+        </video>
+      </ion-row>
+      <ion-fab center bottom *ngIf="enableQuestions">
+        <button ion-fab color="light" (click)="scrollToQuestion()">
+          <ion-icon name="arrow-round-down"></ion-icon>
+        </button>
+      </ion-fab>
+    </ion-grid>
+  </div>
+
+  <div #question class="questions" *ngIf="enableQuestions">
+    <h4>
+      Question #1: The woman dancing in this scene is Barbara Carrera, a popular
+      actress who’s career was at it’s pinnacle in what decade?
+    </h4>
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          [ngClass]="choosedAnswerA === 0 ? 'bg-selected' : ''"
+          (click)="checkQuestion01(0)"
+        >
+          <h4>A) {{ answersA[0] }}</h4>
+        </ion-col>
+        <ion-col
+          [ngClass]="choosedAnswerA === 1 ? 'bg-selected' : ''"
+          (click)="checkQuestion01(1)"
+        >
+          <h4>B) {{ answersA[1] }}</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col
+          [ngClass]="choosedAnswerA === 2 ? 'bg-selected' : ''"
+          (click)="checkQuestion01(2)"
+        >
+          <h4>C) {{ answersA[2] }}</h4>
+        </ion-col>
+        <ion-col
+          [ngClass]="choosedAnswerA === 3 ? 'bg-selected' : ''"
+          (click)="checkQuestion01(3)"
+        >
+          <h3>D) {{ answersA[3] }}</h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <h4>
+      Question #2: What style of music are the men playing in this scene?
+    </h4>
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          [ngClass]="choosedAnswerB === 0 ? 'bg-selected' : ''"
+          (click)="checkQuestion02(0)"
+        >
+          <h4>A) {{ answersB[0] }}</h4>
+        </ion-col>
+        <ion-col
+          [ngClass]="choosedAnswerB === 1 ? 'bg-selected' : ''"
+          (click)="checkQuestion02(1)"
+        >
+          <h4>B) {{ answersB[1] }}</h4>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col
+          [ngClass]="choosedAnswerB === 2 ? 'bg-selected' : ''"
+          (click)="checkQuestion02(2)"
+        >
+          <h4>C) {{ answersB[2] }}</h4>
+        </ion-col>
+        <ion-col
+          [ngClass]="choosedAnswerB === 3 ? 'bg-selected' : ''"
+          (click)="checkQuestion02(3)"
+        >
+          <h4>D) {{ answersB[3] }}</h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

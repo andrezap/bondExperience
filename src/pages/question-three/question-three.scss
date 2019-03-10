@@ -1,3 +1,42 @@
 page-question-three {
+  .header {
+    p {
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
 
+  .fullsize-info {
+    margin-left: 33%;
+  }
+
+  .video {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+
+  .questions {
+    margin-top: 1.3em;
+  }
+
+  .bg-green {
+    background-color: green;
+  }
+
+  .bg-red {
+    background-color: red;
+  }
+
+  .bg-selected {
+    background-color: rgb(219, 214, 214);
+    border: think solid black;
+    color: black;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }

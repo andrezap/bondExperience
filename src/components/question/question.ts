@@ -1,96 +1,124 @@
-import { Component } from '@angular/core';
-import { NavController, AlertController, ModalController, NavParams} from 'ionic-angular';
-import { DatabaseProvider } from '../../providers/database/database';
+import { Component, ViewChild, ElementRef } from "@angular/core";
+import {
+  NavController,
+  AlertController,
+  ModalController,
+  NavParams
+} from "ionic-angular";
+import { LocationProvider } from "../../providers/location/location";
+import { AnswersProvider } from "../../providers/answers/answers";
+
+export interface Resume {
+  question: number;
+  right: boolean;
+}
 
 @Component({
-  selector: 'question',
-  templateUrl: 'question.html'
+  selector: "question",
+  templateUrl: "question.html"
 })
 export class QuestionComponent {
+  public answersA: any[];
+  public answersB: string[];
+  public question1Disable: boolean;
+  public question2Disable: boolean;
+  public resume: Array<Resume>;
+  public rightItemA: number;
+  public rightItemB: number;
+  public enableQuestions: boolean;
+  public rightAnswer;
+  public choosedAnswerA: number;
+  public choosedAnswerB: number;
+  @ViewChild("question") questionElement: ElementRef;
+  @ViewChild("videoPlayer") videoPlayer: ElementRef;
 
-  private INDEX_LAST_ROUTE = "4";
-  private location;
-  private _timer;
-
-  private blockApp = false;
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, 
-    public modalCtrl: ModalController, public navParams : NavParams, public database : DatabaseProvider) {
-      this.location = this.navParams.get('location');
+  constructor(
+    public navCtrl: NavController,
+    public alertCtrl: AlertController,
+    public modalCtrl: ModalController,
+    public navParams: NavParams,
+    public locationProvider: LocationProvider
+  ) {
+    this.resume = new Array<Resume>();
   }
 
-  setTimer(timer) {
-    this._timer = timer;
-  }
-
-  ionViewDidLoad() {
-    this._timer.startTimer();
-  }
-
-  presentAlert() {
-    const alert = this.alertCtrl.create({
-      title: 'APP BLOCKED',
-      subTitle: "Sorry, the app is blocked, you can't go through",
-      buttons: ['Ok']
-    });
-    alert.present();
-    alert.onDidDismiss(() => {
-      localStorage.clear();
-      this.navCtrl.push('HomePage');
-    });
-  }
-    
   moveToNextPage() {
-    if(this.blockApp) {
-      this.presentAlert();
+    let nextPinNumber = parseInt(this.navParams.get("pinNumber")) + 1;
+
+    if (nextPinNumber > this.locationProvider.getLastLocationPin()) {
+      localStorage.clear();
+      this.navCtrl.push("HomePage");
     } else {
-      if(localStorage['lastIndex'] == this.INDEX_LAST_ROUTE) {
-        this.navCtrl.push('FinishPage', {
-          timer : this._timer.timerRemaining()
-        });
-      } else {
-        this.navCtrl.push('MapPage', {
-          timer : this._timer.timerRemaining()
-        });
-      }
+      this.navCtrl.push("MapPage", {
+        pinNumber: nextPinNumber
+      });
     }
   }
 
-  saveOnDB(question, right) {
-    console.log('save on database');
-    return this.database.addQuestion(question, this.location, right, this.navParams.get('timer'), this._timer.timerRemaining());
+  shuffleAnswers(answers: any[]): string[] {
+    let input = answers;
+    for (var i = input.length - 1; i >= 0; i--) {
+      let randomIndex = Math.floor(Math.random() * (i + 1));
+      let itemAtIndex = input[randomIndex];
+
+      input[randomIndex] = input[i];
+      input[i] = itemAtIndex;
+    }
+    return input;
   }
 
-  showPrompt(question : number, msg : string, right = false, object = null, move = false, callback = null) {
-    let prompt = this.alertCtrl.create({
-      title: msg,
-      buttons: [
-        {
-          text: 'Ok',
-          handler: () => {
-            this.saveOnDB(question, right).then(
-              () => {
-              if(right && !move) {
-                let modal = this.modalCtrl.create('ImagesModalPage', {"object" : object});
-                modal.present();
-                modal.onDidDismiss(()=>{
-                  callback();
-                });    
-              } else {
-                callback();
-              }
-              
-              if(move) {
-                this.moveToNextPage();
-              } 
-            
-            })
-          }
-        }
-      ]
+  showPrompt() {
+    let modal = this.modalCtrl.create("ResumePage", { resume: this.resume });
+    modal.present();
+    modal.onDidDismiss(() => {
+      this.moveToNextPage();
     });
-    prompt.present();
   }
 
+  checkQuestion01(index: number): void {
+    if (this.question1Disable) {
+      return;
+    }
+    let choosedAnswer = this.answersA[index];
+    let right = false;
 
+    if (choosedAnswer == this.rightAnswer.A) {
+      this.rightItemA = index;
+      right = true;
+    }
+
+    this.resume.push({ question: 1, right: right });
+    this.choosedAnswerA = index;
+    this.question1Disable = true;
+  }
+
+  checkQuestion02(index: number): void {
+    if (this.question2Disable) {
+      return;
+    }
+    let choosedAnswer = this.answersB[index];
+    let right = false;
+
+    if (choosedAnswer == this.rightAnswer.B) {
+      this.rightItemB = index;
+      right = true;
+    }
+
+    this.resume.push({ question: 2, right: right });
+
+    this.question2Disable = true;
+    this.choosedAnswerB = index;
+    this.showPrompt();
+  }
+
+  scrollToQuestion() {
+    this.questionElement.nativeElement.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+
+  showQuestions() {
+    this.enableQuestions = true;
+  }
 }

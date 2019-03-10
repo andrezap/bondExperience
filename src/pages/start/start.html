@@ -1,5 +1,13 @@
 <ion-content padding>
-    <timer class="hide" #timer timeInSeconds="{{timerInSeconds}}"></timer>
-
-    <div  class="start" ><button [disabled]="disable" block color="red" ion-button (click)="start()" >START</button> </div>
+  <div class="start">
+    <button
+      [disabled]="disable"
+      block
+      color="red"
+      ion-button
+      (click)="showQuestion()"
+    >
+      START
+    </button>
+  </div>
 </ion-content>

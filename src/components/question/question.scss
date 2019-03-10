@@ -1,3 +1,26 @@
 question {
+  .header {
+    p {
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
 
+  .fullsize-info {
+    margin-left: 33%;
+  }
+
+  .video {
+    margin: 0 auto;
+  }
+
+  .arrow {
+    margin-top: 0.3em;
+  }
+
+  .bg-green {
+    background-color: green;
+  }
 }
