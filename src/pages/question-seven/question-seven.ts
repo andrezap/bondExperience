@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component } from "@angular/core";
 import {
   IonicPage,
   NavController,
@@ -35,44 +35,39 @@ export class QuestionSevenPage extends QuestionComponent {
     public locationProvider: LocationProvider
   ) {
     super(navCtrl, alertCtrl, modalCtrl, navParams, locationProvider);
-    this.answersA = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_7_A);
-    this.answersB = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_7_B);
-    this.answersC = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_7_C);
+    this.answersA = this.answersProvider.ANSWERS_CLIP_7_A;
+    this.answersB = this.answersProvider.ANSWERS_CLIP_7_B;
+    this.answersC = this.answersProvider.ANSWERS_CLIP_7_C;
     this.showVideo = false;
-    this.enableQuestions = false;
     this.rightItemA = -1;
     this.rightItemB = -1;
     this.rightItemC = -1;
+    this.choosedAnswerC = null;
     this.rightAnswer = this.answersProvider.RIGHT_ANSWER_7;
   }
 
   checkQuestion02(index: number): void {
     let choosedAnswer = this.answersB[index];
-    let right = false;
+
+    this.choosedAnswerB = index;
 
     if (choosedAnswer == this.rightAnswer.B) {
-      this.rightItemB = index;
-      right = true;
+      this.showPromptWihtTime();
     }
 
-    this.resume.push({ question: 2, right: right });
-    this.choosedAnswerB = index;
-    this.question2Disable = true;
+    this.timeStart = performance.now();
+    this.question3Disable = false;
   }
 
   checkQuestion03(index: number): void {
-    let choosedAnswer = this.answersB[index];
-    let right = false;
+    let choosedAnswer = this.answersC[index];
+
+    this.lastQuestion = true;
+    this.choosedAnswerC = index;
 
     if (choosedAnswer == this.rightAnswer.C) {
-      this.rightItemC = index;
-      right = true;
+      this.showPromptWihtTime();
     }
-
-    this.resume.push({ question: 3, right: right });
-    this.question3Disable = true;
-    this.choosedAnswerC = index;
-    this.showPrompt();
   }
 
   ionViewDidLoad() {

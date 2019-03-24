@@ -8,95 +8,118 @@
       <ion-row>
         <video
           #videoPlayer
-          width="520"
-          height="220"
+          width="90%"
+          height="90%"
           controls
           autoplay
           (ended)="showQuestions()"
+          class="center"
         >
           <source src="./assets/videos/BondClip5.3gp" type="video/mp4" />
         </video>
       </ion-row>
-      <ion-fab center bottom *ngIf="enableQuestions">
-        <button ion-fab color="light" (click)="scrollToQuestion()">
+      <ion-fab center bottom *ngIf="showFabBtn">
+        <button ion-fab color="light" (click)="scrollToQuestion(1)">
           <ion-icon name="arrow-round-down"></ion-icon>
         </button>
       </ion-fab>
     </ion-grid>
   </div>
 
-  <div #question class="questions" *ngIf="enableQuestions">
-    <h4>
-      Question #1: Which STRUCTURE was seen in the background of the beginning
-      of this clip?
-    </h4>
-    <ion-grid>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerA === 0 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(0)"
-        >
-          <p>A) <img [src]="answersA[0].img" /></p>
-          <p>{{ answersA[0].text }}</p>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerA === 1 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(1)"
-        >
-          <p>B) <img [src]="answersA[1].img" /></p>
-          <p>{{ answersA[1].text }}</p>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerA === 2 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(2)"
-        >
-          <p>C) <img [src]="answersA[2].img" /></p>
-          <p>{{ answersA[2].text }}</p>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerA === 3 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(3)"
-        >
-          <p>D) <img [src]="answersA[3].img" /></p>
-          <p>{{ answersA[3].text }}</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <h4>
-      Question #2: What style of music are the men playing in this scene?
-    </h4>
-    <ion-grid>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerB === 0 ? 'bg-selected' : ''"
-          (click)="checkQuestion02(0)"
-        >
-          <h4>A) {{ answersB[0] }}</h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerB === 1 ? 'bg-selected' : ''"
-          (click)="checkQuestion02(1)"
-        >
-          <h4>B) {{ answersB[1] }}</h4>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerB === 2 ? 'bg-selected' : ''"
-          (click)="checkQuestion02(2)"
-        >
-          <h4>C) {{ answersB[2] }}</h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerB === 3 ? 'bg-selected' : ''"
-          (click)="checkQuestion02(3)"
-        >
-          <h4>D) {{ answersB[3] }}</h4>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <div #question class="questions">
+    <div class="question-1" *ngIf="!question1Disable">
+      <h4>
+        Question #1: Which STRUCTURE was seen in the background of the beginning
+        of this clip?
+      </h4>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerA === 0 ? 'bg-red' : ''"
+            (click)="checkQuestion01(0)"
+          >
+            <p>A) <img [src]="answersA[0]" /></p>
+            <p>Road Traffic Building</p>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerA === 1 ? 'bg-red' : ''"
+            (click)="checkQuestion01(1)"
+          >
+            <p>B) <img [src]="answersA[1]" /></p>
+            <p>Lion and Horse Sculpture</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerA === 2 ? 'bg-green' : ''"
+            (click)="checkQuestion01(2)"
+          >
+            <p>C) <img [src]="answersA[2]" /></p>
+            <p>An Arch on the Churchill Building</p>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerA === 3 ? 'bg-red' : ''"
+            (click)="checkQuestion01(3)"
+          >
+            <p>D) <img [src]="answersA[3]" /></p>
+            <p>The Masonic Building</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <button
+      ion-button
+      round
+      color="light"
+      *ngIf="!question2Disable"
+      (click)="scrollToQuestion(2)"
+    >
+      <ion-icon name="arrow-round-down"></ion-icon>
+    </button>
+    <div #question2 *ngIf="!question2Disable">
+      <h4>
+        Question #2: Who are the two actors, in real life, that are seen in this
+        film clip?
+      </h4>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerB === 0 ? 'bg-red' : ''"
+            (click)="checkQuestion02(0)"
+          >
+            <h4>A) {{ answersB[0] }}</h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerB === 1 ? 'bg-red' : ''"
+            (click)="checkQuestion02(1)"
+          >
+            <h4>B) {{ answersB[1] }}</h4>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerB === 2 ? 'bg-green' : ''"
+            (click)="checkQuestion02(2)"
+          >
+            <h4>C) {{ answersB[2] }}</h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerB === 3 ? 'bg-red' : ''"
+            (click)="checkQuestion02(3)"
+          >
+            <h4>D) {{ answersB[3] }}</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
+  <button
+    [disabled]="lastQuestion === false"
+    block
+    color="red"
+    ion-button
+    (click)="moveToNextPage()"
+  >
+    Next
+  </button>
 </ion-content>

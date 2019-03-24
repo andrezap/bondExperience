@@ -6,7 +6,6 @@ import {
   ModalController
 } from "ionic-angular";
 import { LocationProvider } from "../../providers/location/location";
-import { TimerComponent } from "../../components/timer/timer";
 import { AudioProvider } from "../../providers/audio/audio";
 import { HelperProvider } from "../../providers/helper/helper";
 import {
@@ -24,14 +23,10 @@ import {
 })
 export class MapPage {
   @ViewChild("map") mapElement: ElementRef;
-
   private map: GoogleMap;
   private allLocations: any;
   private location: any;
-  private image: string;
   private pinNumber: number;
-  private initalLocation = [25.078295, -77.340429];
-  private lastRouteIndex: number;
 
   constructor(
     public navCtrl: NavController,
@@ -49,11 +44,6 @@ export class MapPage {
   ionViewDidLoad() {
     console.log("load");
     this.loadMap();
-    if (this.pinNumber) {
-      setTimeout(() => {
-        this.audioProvider.playPinSound(this.pinNumber);
-      }, 1000);
-    }
   }
 
   loadMap() {

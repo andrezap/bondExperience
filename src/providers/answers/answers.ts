@@ -11,8 +11,8 @@ export class AnswersProvider {
   public readonly ANSWERS_CLIP_2_B = ["7", "4", "6", "10"];
   public readonly RIGHT_ANSWER_2 = { A: "Costa", B: "7" };
 
-  public readonly ANSWERS_CLIP_3_A = ["1980's", "1990", "1960", "2000"];
-  public readonly ANSWERS_CLIP_3_B = ["Junkanoo", "Soca,", "Regga", "Carnival"];
+  public readonly ANSWERS_CLIP_3_A = ["2000", "1990", "1960", "1980's"];
+  public readonly ANSWERS_CLIP_3_B = ["Soca", "Junkanoo", "Regga", "Carnival"];
   public readonly RIGHT_ANSWER_3 = { A: "1980's", B: "Junkanoo" };
 
   public readonly ANSWERS_CLIP_4_A = [
@@ -22,9 +22,9 @@ export class AnswersProvider {
     "assets/images/4A4.jpg"
   ];
   public readonly ANSWERS_CLIP_4_B = [
-    "USA – CIA",
     "RUSSIAN – KGB",
     "BRITISH – MI6",
+    "USA – CIA",
     "USA – FBI"
   ];
   public readonly RIGHT_ANSWER_4 = {
@@ -33,28 +33,28 @@ export class AnswersProvider {
   };
 
   public readonly ANSWERS_CLIP_5_A = [
-    { text: "Never Say Never Again", img: "assets/images/5A1.jpeg" },
-    { text: "Thunderball", img: "assets/images/5A2.png" },
-    { text: "From Russian With Love", img: "assets/images/5A3.jpg" },
-    { text: "You Only Live Twice", img: "assets/images/5A4.jpg" }
+    "assets/images/5A1.jpeg",
+    "assets/images/5A2.png",
+    "assets/images/5A4.jpg",
+    "assets/images/5A3.jpg"
   ];
+
   public readonly ANSWERS_CLIP_5_B = [
     "Bahamian Surrey Horses",
-    "Bahamian Morgan Horses,",
+    "Bahamian Morgan Horses",
     "Bahamian Quarter Horses",
     "Bahamian Breton Horses"
   ];
   public readonly RIGHT_ANSWER_5 = {
-    A: "Never Say Never Again",
+    A: "assets/images/5A2.png",
     B: "Bahamian Surrey Horses"
   };
 
-  //TODO check the right answers
   public readonly ANSWERS_CLIP_6_A = [
-    { text: "Road Traffic Building", img: "assets/images/6A1.png" },
-    { text: "An Arch on the Churchill Building", img: "assets/images/6A2.png" },
-    { text: "Lion and Horse Sculpture", img: "assets/images/6A3.png" },
-    { text: "The Masonic Building", img: "assets/images/6A4.png" }
+    "assets/images/6A1.png",
+    "assets/images/6A2.png",
+    "assets/images/6A3.png",
+    "assets/images/6A4.png"
   ];
   public readonly ANSWERS_CLIP_6_B = [
     "Sean Connery and Rolando Villazon",
@@ -63,8 +63,8 @@ export class AnswersProvider {
     "Rodger Moore and Hugh Laurie"
   ];
   public readonly RIGHT_ANSWER_6 = {
-    A: "7",
-    B: "Sean Connery and Rolando Villazon"
+    A: "assets/images/6A3.png",
+    B: "Sean Connery and Rowan Atkinson"
   };
 
   public readonly ANSWERS_CLIP_7_A = [
@@ -81,8 +81,8 @@ export class AnswersProvider {
     "assets/images/7C4.jpeg"
   ];
   public readonly RIGHT_ANSWER_7 = {
-    A: "7A1",
+    A: "assets/images/7A1.jpg",
     B: "True",
-    C: "7C4"
+    C: "assets/images/7C4.jpeg"
   };
 }

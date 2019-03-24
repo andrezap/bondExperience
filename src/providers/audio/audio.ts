@@ -29,23 +29,6 @@ export class AudioProvider {
     return this.nativeAudio.stop("rogueAgentAudio");
   }
 
-  playPinSound(number) {
-    switch (number) {
-      case "02":
-        return this.nativeAudio.play("pin2");
-      case "03":
-        return this.nativeAudio.play("pin3");
-      case "04":
-        return this.nativeAudio.play("pin4");
-      case "05":
-        return this.nativeAudio.play("pin5");
-      case "06":
-        return this.nativeAudio.play("pin6");
-      case "07":
-        return this.nativeAudio.play("pin7");
-    }
-  }
-
   playFilmMsg() {
     this.nativeAudio.play("filmMsg");
   }

@@ -1,17 +1,10 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { QuestionFourPage } from './question-four';
-import { TimerComponentModule } from '../../components/timer/timer.module';
-import { QuestionComponentModule } from '../../components/question/question.module';
+import { NgModule } from "@angular/core";
+import { IonicPageModule } from "ionic-angular";
+import { QuestionFourPage } from "./question-four";
+import { QuestionComponentModule } from "../../components/question/question.module";
 
 @NgModule({
-  declarations: [
-    QuestionFourPage,
-  ],
-  imports: [
-    QuestionComponentModule,
-    TimerComponentModule,
-    IonicPageModule.forChild(QuestionFourPage),
-  ]
+  declarations: [QuestionFourPage],
+  imports: [QuestionComponentModule, IonicPageModule.forChild(QuestionFourPage)]
 })
 export class QuestionFourPageModule {}

@@ -33,27 +33,25 @@ export class QuestionSixPage extends QuestionComponent {
     public locationProvider: LocationProvider
   ) {
     super(navCtrl, alertCtrl, modalCtrl, navParams, locationProvider);
-    this.answersA = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_6_A);
-    this.answersB = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_6_B);
+    this.answersA = this.answersProvider.ANSWERS_CLIP_6_A;
+    this.answersB = this.answersProvider.ANSWERS_CLIP_6_B;
     this.showVideo = false;
-    this.enableQuestions = false;
     this.rightItemA = -1;
     this.rightItemB = -1;
     this.rightAnswer = answersProvider.RIGHT_ANSWER_6;
   }
 
   checkQuestion01(index: number): void {
-    let choosedAnswer = this.answersA[index].text;
-    let right = false;
+    let choosedAnswer = this.answersA[index];
+
+    this.choosedAnswerA = index;
 
     if (choosedAnswer == this.rightAnswer.A) {
-      this.rightItemA = index;
-      right = true;
+      this.showPromptWihtTime();
     }
 
-    this.resume.push({ question: 1, right: right });
-    this.choosedAnswerA = index;
-    this.question1Disable = true;
+    this.timeStart = performance.now();
+    this.question2Disable = false;
   }
 
   ionViewDidLoad() {

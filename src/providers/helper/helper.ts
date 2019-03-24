@@ -24,9 +24,12 @@ export class HelperProvider {
   static readonly LOCATION_01 = [25.078295, -77.340429];
   static readonly LOCATION_02 = [25.07875, -77.33967];
   static readonly LOCATION_03 = [25.0789, -77.34056];
-  static readonly LOCATION_04 = [25.07865, -77.34028];
-  static readonly LOCATION_05 = [25.07843, -77.34016];
-  static readonly LOCATION_06 = [25.078533, -77.340012];
+  // static readonly LOCATION_04 = [25.07865, -77.34028];
+  static readonly LOCATION_04 = [25.078748, -77.340296];
+  // static readonly LOCATION_05 = [25.07843, -77.34016];
+  static readonly LOCATION_05 = [25.078364, -77.34022];
+  // static readonly LOCATION_06 = [25.078533, -77.340012];
+  static readonly LOCATION_06 = [25.078585, -77.339942];
   static readonly LOCATION_07 = [25.07786, -77.33969];
 
   static readonly MARKER_02 = "./assets/images/pin2.png";

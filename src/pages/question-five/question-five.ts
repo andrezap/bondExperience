@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component } from "@angular/core";
 import {
   NavController,
   ModalController,
@@ -31,10 +31,9 @@ export class QuestionFivePage extends QuestionComponent {
     public locationProvider: LocationProvider
   ) {
     super(navCtrl, alertCtrl, modalCtrl, navParams, locationProvider);
-    this.answersA = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_5_A);
-    this.answersB = this.shuffleAnswers(this.answersProvider.ANSWERS_CLIP_5_B);
+    this.answersA = this.answersProvider.ANSWERS_CLIP_5_A;
+    this.answersB = this.answersProvider.ANSWERS_CLIP_5_B;
     this.showVideo = false;
-    this.enableQuestions = false;
     this.rightItemA = -1;
     this.rightItemB = -1;
     this.rightAnswer = answersProvider.RIGHT_ANSWER_5;

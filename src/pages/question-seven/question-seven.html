@@ -8,8 +8,8 @@
       <ion-row>
         <video
           #videoPlayer
-          width="520"
-          height="220"
+          width="90%"
+          height="90%"
           controls
           autoplay
           (ended)="showQuestions()"
@@ -17,103 +17,134 @@
           <source src="./assets/videos/BondClip6.3gp" type="video/mp4" />
         </video>
       </ion-row>
-      <ion-fab center bottom *ngIf="enableQuestions">
-        <button ion-fab color="light" (click)="scrollToQuestion()">
+      <ion-fab center bottom *ngIf="showFabBtn">
+        <button ion-fab color="light" (click)="scrollToQuestion(1)">
           <ion-icon name="arrow-round-down"></ion-icon>
         </button>
       </ion-fab>
     </ion-grid>
   </div>
 
-  <div #question class="questions" *ngIf="enableQuestions">
-    <h4>
-      Question #1: Which photo shows the exit that James Bond took to get away
-      from the bad guys? Mind you, the picture is from our time, not then.
-    </h4>
-    <ion-grid>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerA === 0 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(0)"
-        >
-          <h4>A) <img [src]="answersA[0]" /></h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerA === 1 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(1)"
-        >
-          <h4>B) <img [src]="answersA[1]" /></h4>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerA === 2 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(2)"
-        >
-          <h4>C) <img [src]="answersA[2]" /></h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerA === 3 ? 'bg-selected' : ''"
-          (click)="checkQuestion01(3)"
-        >
-          <h4>D) <img [src]="answersA[3]" /></h4>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <h4>
-      Question #2: The parade that James bond is running through is called a
-      Junkanoo Rush Out?
-    </h4>
-    <ion-grid>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerB === 0 ? 'bg-selected' : ''"
-          (click)="checkQuestion02(0)"
-        >
-          <h4>A){{ answersB[0] }}</h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerB === 1 ? 'bg-selected' : ''"
-          (click)="checkQuestion02(1)"
-        >
-          <h4>B) {{ answersB[1] }}</h4>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <h4>
-      Question #3: This scene is from which James Bond Movie?
-    </h4>
-    <ion-grid>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerC === 0 ? 'bg-selected' : ''"
-          (click)="checkQuestion03(0)"
-        >
-          <h4>A) <img [src]="answersC[0]" /></h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerC === 1 ? 'bg-selected' : ''"
-          (click)="checkQuestion03(1)"
-        >
-          <h4>B) <img [src]="answersC[1]" /></h4>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col
-          [ngClass]="choosedAnswerC === 2 ? 'bg-selected' : ''"
-          (click)="checkQuestion03(2)"
-        >
-          <h4>C) <img [src]="answersC[2]" /></h4>
-        </ion-col>
-        <ion-col
-          [ngClass]="choosedAnswerC === 3 ? 'bg-selected' : ''"
-          (click)="checkQuestion03(3)"
-        >
-          <h4>D)<img [src]="answersC[3]" /></h4>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <div #question class="questions">
+    <div class="question-1" *ngIf="!question1Disable">
+      <h4>
+        Question #1: Which photo shows the exit that James Bond took to get away
+        from the bad guys? Mind you, the picture is from our time, not then.
+      </h4>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerA === 0 ? 'bg-green' : ''"
+            (click)="checkQuestion01(0)"
+          >
+            <h4>A) <img [src]="answersA[0]" /></h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerA === 1 ? 'bg-red' : ''"
+            (click)="checkQuestion01(1)"
+          >
+            <h4>B) <img [src]="answersA[1]" /></h4>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerA === 2 ? 'bg-red' : ''"
+            (click)="checkQuestion01(2)"
+          >
+            <h4>C) <img [src]="answersA[2]" /></h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerA === 3 ? 'bg-red' : ''"
+            (click)="checkQuestion01(3)"
+          >
+            <h4>D) <img [src]="answersA[3]" /></h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <button
+      ion-button
+      round
+      color="light"
+      *ngIf="!question2Disable"
+      (click)="scrollToQuestion(2)"
+    >
+      <ion-icon name="arrow-round-down"></ion-icon>
+    </button>
+    <div #question2 *ngIf="!question2Disable">
+      <h4>
+        Question #2: The parade that James bond is running through is called a
+        Junkanoo Rush Out?
+      </h4>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerB === 0 ? 'bg-green' : ''"
+            (click)="checkQuestion02(0)"
+          >
+            <h4>A){{ answersB[0] }}</h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerB === 1 ? 'bg-red' : ''"
+            (click)="checkQuestion02(1)"
+          >
+            <h4>B) {{ answersB[1] }}</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <button
+      ion-button
+      round
+      color="light"
+      *ngIf="!question3Disable"
+      (click)="scrollToQuestion(3)"
+    >
+      <ion-icon name="arrow-round-down"></ion-icon>
+    </button>
+    <div #question3 class="question-3" *ngIf="!question3Disable">
+      <h4>
+        Question #3: This scene is from which James Bond Movie?
+      </h4>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerC === 0 ? 'bg-red' : ''"
+            (click)="checkQuestion03(0)"
+          >
+            <h4>A) <img [src]="answersC[0]" /></h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerC === 1 ? 'bg-red' : ''"
+            (click)="checkQuestion03(1)"
+          >
+            <h4>B) <img [src]="answersC[1]" /></h4>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col
+            [ngClass]="choosedAnswerC === 2 ? 'bg-red' : ''"
+            (click)="checkQuestion03(2)"
+          >
+            <h4>C) <img [src]="answersC[2]" /></h4>
+          </ion-col>
+          <ion-col
+            [ngClass]="choosedAnswerC === 3 ? 'bg-green' : ''"
+            (click)="checkQuestion03(3)"
+          >
+            <h4>D)<img [src]="answersC[3]" /></h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
+  <button
+    [disabled]="lastQuestion === false"
+    block
+    color="red"
+    ion-button
+    (click)="moveToNextPage()"
+  >
+    Finish
+  </button>
 </ion-content>

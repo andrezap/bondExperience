@@ -1,7 +1,6 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { AlertController } from "ionic-angular";
-import { TimerComponent } from "../../components/timer/timer";
 
 @IonicPage()
 @Component({
@@ -9,7 +8,6 @@ import { TimerComponent } from "../../components/timer/timer";
   templateUrl: "start.html"
 })
 export class StartPage {
-  @ViewChild(TimerComponent) timer: TimerComponent;
   private disable: boolean;
   private pinNumber;
 

@@ -3,7 +3,7 @@
     <name>Bond Experience</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.178.62:8108" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -110,5 +110,8 @@
     <allow-navigation href="http://192.168.178.62:8118" />
     <allow-navigation href="http://192.168.178.62:8119" />
     <allow-navigation href="http://192.168.178.62:8120" />
+    <allow-navigation href="http://192.168.178.62:8121" />
+    <allow-navigation href="http://192.168.178.62:8122" />
+    <allow-navigation href="http://192.168.178.62:8123" />
     <engine name="android" spec="6.4.0" />
 </widget>

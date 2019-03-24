@@ -41,12 +41,6 @@ export class MyApp {
       2,
       0
     );
-    this.nativeAudio.preloadSimple("pin3", "assets/audios/pin3.mp3");
-    this.nativeAudio.preloadSimple("pin2", "assets/audios/pin2.mp3");
-    this.nativeAudio.preloadSimple("pin4", "assets/audios/pin4.mp3");
-    this.nativeAudio.preloadSimple("pin5", "assets/audios/pin5.mp3");
-    this.nativeAudio.preloadSimple("pin6", "assets/audios/pin6.mp3");
-    this.nativeAudio.preloadSimple("pin7", "assets/audios/pin7.mp3");
     this.nativeAudio.preloadSimple("filmMsg", "assets/audios/filmMsg.mp3");
   }
 }

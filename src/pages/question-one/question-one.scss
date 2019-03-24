@@ -13,12 +13,13 @@ page-question-one {
   }
 
   .video {
-    margin-right: -10px;
-    margin-left: -10px;
+    width: 90%; /*or whatever % you prefer*/
+    margin: 0 auto;
+    display: block;
   }
 
   .questions {
-    margin-top: 1.3em;
+    margin-top: 5em;
   }
 
   .bg-green {

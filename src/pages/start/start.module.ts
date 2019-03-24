@@ -1,15 +1,9 @@
-import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { StartPage } from './start';
-import { TimerComponentModule } from '../../components/timer/timer.module';
+import { NgModule } from "@angular/core";
+import { IonicPageModule } from "ionic-angular";
+import { StartPage } from "./start";
 
 @NgModule({
-  declarations: [
-    StartPage,
-  ],
-  imports: [
-    TimerComponentModule,
-    IonicPageModule.forChild(StartPage),
-  ],
+  declarations: [StartPage],
+  imports: [IonicPageModule.forChild(StartPage)]
 })
 export class StartPageModule {}
