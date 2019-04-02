@@ -31,13 +31,17 @@
         Question #1: Which photo shows the exit that James Bond took to get away
         from the bad guys? Mind you, the picture is from our time, not then.
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers1" ion-button (click)="startTime(1)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers1">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerA === 0 ? 'bg-green' : ''"
             (click)="checkQuestion01(0)"
           >
             <h4>A) <img [src]="answersA[0]" /></h4>
+            <p>{{ time1 }}</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerA === 1 ? 'bg-red' : ''"
@@ -76,13 +80,17 @@
         Question #2: The parade that James bond is running through is called a
         Junkanoo Rush Out?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers2" ion-button (click)="startTime(2)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers2">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerB === 0 ? 'bg-green' : ''"
             (click)="checkQuestion02(0)"
           >
             <h4>A){{ answersB[0] }}</h4>
+            <p>{{ time2 }}</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerB === 1 ? 'bg-red' : ''"
@@ -106,19 +114,24 @@
       <h4>
         Question #3: This scene is from which James Bond Movie?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers3" ion-button (click)="startTime(3)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers3">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerC === 0 ? 'bg-red' : ''"
             (click)="checkQuestion03(0)"
           >
             <h4>A) <img [src]="answersC[0]" /></h4>
+            <p>Dr. NO</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerC === 1 ? 'bg-red' : ''"
             (click)="checkQuestion03(1)"
           >
             <h4>B) <img [src]="answersC[1]" /></h4>
+            <p>From Russia with love</p>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -127,12 +140,15 @@
             (click)="checkQuestion03(2)"
           >
             <h4>C) <img [src]="answersC[2]" /></h4>
+            <p>Diamonds are forever</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerC === 3 ? 'bg-green' : ''"
             (click)="checkQuestion03(3)"
           >
             <h4>D)<img [src]="answersC[3]" /></h4>
+            <p>Thunderball</p>
+            <p>{{ time3 }}</p>
           </ion-col>
         </ion-row>
       </ion-grid>

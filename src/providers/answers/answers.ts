@@ -11,7 +11,7 @@ export class AnswersProvider {
   public readonly ANSWERS_CLIP_2_B = ["7", "4", "6", "10"];
   public readonly RIGHT_ANSWER_2 = { A: "Costa", B: "7" };
 
-  public readonly ANSWERS_CLIP_3_A = ["2000", "1990", "1960", "1980's"];
+  public readonly ANSWERS_CLIP_3_A = ["2000's", "1990's", "1960's", "1980's"];
   public readonly ANSWERS_CLIP_3_B = ["Soca", "Junkanoo", "Regga", "Carnival"];
   public readonly RIGHT_ANSWER_3 = { A: "1980's", B: "Junkanoo" };
 

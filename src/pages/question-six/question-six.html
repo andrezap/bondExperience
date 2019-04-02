@@ -32,7 +32,10 @@
         Question #1: Which STRUCTURE was seen in the background of the beginning
         of this clip?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers1" ion-button (click)="startTime(1)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers1">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerA === 0 ? 'bg-red' : ''"
@@ -56,6 +59,7 @@
           >
             <p>C) <img [src]="answersA[2]" /></p>
             <p>An Arch on the Churchill Building</p>
+            <p>{{ time1 }}</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerA === 3 ? 'bg-red' : ''"
@@ -81,7 +85,10 @@
         Question #2: Who are the two actors, in real life, that are seen in this
         film clip?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers2" ion-button (click)="startTime(2)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers2">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerB === 0 ? 'bg-red' : ''"
@@ -102,6 +109,7 @@
             (click)="checkQuestion02(2)"
           >
             <h4>C) {{ answersB[2] }}</h4>
+            <p>{{ time2 }}</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerB === 3 ? 'bg-red' : ''"

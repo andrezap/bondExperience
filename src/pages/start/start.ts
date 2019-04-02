@@ -22,10 +22,6 @@ export class StartPage {
       this.pinNumber = this.navParam.get("pinNumber");
       localStorage["lastPin"] = this.navParam.get("pinNumber");
     }
-
-    // this.next = this.navParam.get("next");
-    // if(this.next)
-    // this.timerInSeconds = this.navParam.get('timer');
   }
 
   ionViewDidLoad() {
@@ -33,7 +29,7 @@ export class StartPage {
     this.presentAlert();
     setTimeout(() => {
       this.disable = false;
-    }, 10000);
+    }, 3000);
   }
 
   presentAlert() {
@@ -48,7 +44,6 @@ export class StartPage {
   goToQuestion(QuestionPage: string) {
     return this.navCtrl.push(QuestionPage, {
       pinNumber: this.pinNumber
-      // timer : this.timer.timerRemaining()
     });
   }
 

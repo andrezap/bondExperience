@@ -25,6 +25,12 @@ export class QuestionComponent {
   public timeStart: number;
   public lastQuestion: boolean;
   public showFabBtn: boolean;
+  public time1: string;
+  public time2: string;
+  public time3: string;
+  public showAnswers1: boolean;
+  public showAnswers2: boolean;
+  public showAnswers3: boolean;
 
   @ViewChild("question") questionElement: ElementRef;
   @ViewChild("question2") question2Element: ElementRef;
@@ -43,7 +49,13 @@ export class QuestionComponent {
     this.question1Disable = true;
     this.question2Disable = true;
     this.question3Disable = true;
+    this.showAnswers1 = false;
+    this.showAnswers2 = false;
+    this.showAnswers3 = false;
     this.lastQuestion = false;
+    this.time1 = null;
+    this.time2 = null;
+    this.time3 = null;
   }
 
   moveToNextPage() {
@@ -59,35 +71,37 @@ export class QuestionComponent {
     }
   }
 
-  showPromptWihtTime(): void {
-    let time = this.formatTime();
-    const alert = this.alertCtrl.create({
-      title: "Right Answer!",
-      subTitle: "Your time: " + time,
-      buttons: ["OK"]
-    });
-    alert.present();
+  checkQuestion01(index: number): void {
+    if (this.choosedAnswerA === null) {
+      let choosedAnswer = this.answersA[index];
+      this.choosedAnswerA = index;
+
+      if (choosedAnswer == this.rightAnswer.A) {
+        this.time1 = this.formatTime();
+      }
+
+      this.question2Disable = false;
+    }
   }
 
-  checkQuestion01(index: number): void {
-    let choosedAnswer = this.answersA[index];
-    this.choosedAnswerA = index;
-
-    if (choosedAnswer == this.rightAnswer.A) {
-      this.showPromptWihtTime();
-    }
-
+  startTime(question): void {
     this.timeStart = performance.now();
-    this.question2Disable = false;
+    if (question === 1) this.showAnswers1 = true;
+
+    if (question === 2) this.showAnswers2 = true;
+
+    if (question === 3) this.showAnswers3 = true;
   }
 
   checkQuestion02(index: number): void {
-    this.choosedAnswerB = index;
-    let choosedAnswer = this.answersB[index];
-    this.lastQuestion = true;
+    if (this.choosedAnswerB === null) {
+      this.choosedAnswerB = index;
+      let choosedAnswer = this.answersB[index];
+      this.lastQuestion = true;
 
-    if (choosedAnswer == this.rightAnswer.B) {
-      this.showPromptWihtTime();
+      if (choosedAnswer == this.rightAnswer.B) {
+        this.time2 = this.formatTime();
+      }
     }
   }
 
@@ -116,7 +130,6 @@ export class QuestionComponent {
   }
 
   showQuestions(): void {
-    this.timeStart = performance.now();
     this.question1Disable = false;
     this.showFabBtn = true;
   }
@@ -132,6 +145,6 @@ export class QuestionComponent {
     let minutesTxt = minutes < 10 ? "0" + minutes : minutes;
     let secondsTxt = seconds < 10 ? "0" + seconds : seconds;
 
-    return hoursTxt + ":" + minutesTxt + ":" + secondsTxt;
+    return "Your time: " + hoursTxt + ":" + minutesTxt + ":" + secondsTxt;
   }
 }

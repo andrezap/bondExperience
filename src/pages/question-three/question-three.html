@@ -31,7 +31,10 @@
         Question #1: The woman dancing in this scene is Barbara Carrera, a
         popular actress who’s career was at it’s pinnacle in what decade?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers1" ion-button (click)="startTime(1)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers1">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerA === 0 ? 'bg-red' : ''"
@@ -57,7 +60,8 @@
             [ngClass]="choosedAnswerA === 3 ? 'bg-green' : ''"
             (click)="checkQuestion01(3)"
           >
-            <h3>D) {{ answersA[3] }}</h3>
+            <h4>D) {{ answersA[3] }}</h4>
+            <p>{{ time1 }}</p>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -75,7 +79,10 @@
       <h4>
         Question #2: What style of music are the men playing in this scene?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers2" ion-button (click)="startTime(2)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers2">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerB === 0 ? 'bg-red' : ''"
@@ -88,6 +95,7 @@
             (click)="checkQuestion02(1)"
           >
             <h4>B) {{ answersB[1] }}</h4>
+            <p>{{ time2 }}</p>
           </ion-col>
         </ion-row>
         <ion-row>

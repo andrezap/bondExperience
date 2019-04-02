@@ -31,36 +31,42 @@
         Question #1: There is a smoke stack on one of the cruise ships in the
         back ground with the letter “C” on it. What does the “C” stand for?
       </h4>
-      <ion-grid>
-        <ion-row>
-          <ion-col
-            [ngClass]="choosedAnswerA === 0 ? 'bg-green' : ''"
-            (click)="checkQuestion01(0)"
-          >
-            <h4>A) {{ answersA[0] }}</h4>
-          </ion-col>
-          <ion-col
-            [ngClass]="choosedAnswerA === 1 ? 'bg-red' : ''"
-            (click)="checkQuestion01(1)"
-          >
-            <h4>B) {{ answersA[1] }}</h4>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col
-            [ngClass]="choosedAnswerA === 2 ? 'bg-red' : ''"
-            (click)="checkQuestion01(2)"
-          >
-            <h4>C) {{ answersA[2] }}</h4>
-          </ion-col>
-          <ion-col
-            [ngClass]="choosedAnswerA === 3 ? 'bg-red' : ''"
-            (click)="checkQuestion01(3)"
-          >
-            <h3>D) {{ answersA[3] }}</h3>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <button *ngIf="!showAnswers1" ion-button (click)="startTime(1)">
+        Start
+      </button>
+      <div *ngIf="showAnswers1">
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              [ngClass]="choosedAnswerA === 0 ? 'bg-green' : ''"
+              (click)="checkQuestion01(0)"
+            >
+              <h4>A) {{ answersA[0] }}</h4>
+              <p>{{ time1 }}</p>
+            </ion-col>
+            <ion-col
+              [ngClass]="choosedAnswerA === 1 ? 'bg-red' : ''"
+              (click)="checkQuestion01(1)"
+            >
+              <h4>B) {{ answersA[1] }}</h4>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col
+              [ngClass]="choosedAnswerA === 2 ? 'bg-red' : ''"
+              (click)="checkQuestion01(2)"
+            >
+              <h4>C) {{ answersA[2] }}</h4>
+            </ion-col>
+            <ion-col
+              [ngClass]="choosedAnswerA === 3 ? 'bg-red' : ''"
+              (click)="checkQuestion01(3)"
+            >
+              <h4>D) {{ answersA[3] }}</h4>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
     </div>
     <button
       ion-button
@@ -76,13 +82,17 @@
         Question #2: This is the last James Bond film this actor acted in. How
         many James Bond films did he act in total?
       </h4>
-      <ion-grid>
+      <button *ngIf="!showAnswers2" ion-button (click)="startTime(2)">
+        Start
+      </button>
+      <ion-grid *ngIf="showAnswers2">
         <ion-row>
           <ion-col
             [ngClass]="choosedAnswerB === 0 ? 'bg-green' : ''"
             (click)="checkQuestion02(0)"
           >
             <h4>A) {{ answersB[0] }}</h4>
+            <p>{{ time2 }}</p>
           </ion-col>
           <ion-col
             [ngClass]="choosedAnswerB === 1 ? 'bg-red' : ''"

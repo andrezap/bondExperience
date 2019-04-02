@@ -42,16 +42,18 @@ export class QuestionSixPage extends QuestionComponent {
   }
 
   checkQuestion01(index: number): void {
-    let choosedAnswer = this.answersA[index];
+    if (this.choosedAnswerA === null) {
+      let choosedAnswer = this.answersA[index];
 
-    this.choosedAnswerA = index;
+      this.choosedAnswerA = index;
 
-    if (choosedAnswer == this.rightAnswer.A) {
-      this.showPromptWihtTime();
+      if (choosedAnswer == this.rightAnswer.A) {
+        this.time1 = this.formatTime();
+      }
+
+      this.timeStart = performance.now();
+      this.question2Disable = false;
     }
-
-    this.timeStart = performance.now();
-    this.question2Disable = false;
   }
 
   ionViewDidLoad() {

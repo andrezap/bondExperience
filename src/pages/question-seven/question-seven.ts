@@ -47,26 +47,29 @@ export class QuestionSevenPage extends QuestionComponent {
   }
 
   checkQuestion02(index: number): void {
-    let choosedAnswer = this.answersB[index];
+    if (this.choosedAnswerB === null) {
+      let choosedAnswer = this.answersB[index];
 
-    this.choosedAnswerB = index;
+      this.choosedAnswerB = index;
 
-    if (choosedAnswer == this.rightAnswer.B) {
-      this.showPromptWihtTime();
+      if (choosedAnswer == this.rightAnswer.B) {
+        this.time2 = this.formatTime();
+      }
+
+      this.question3Disable = false;
     }
-
-    this.timeStart = performance.now();
-    this.question3Disable = false;
   }
 
   checkQuestion03(index: number): void {
-    let choosedAnswer = this.answersC[index];
+    if (this.choosedAnswerC === null) {
+      let choosedAnswer = this.answersC[index];
 
-    this.lastQuestion = true;
-    this.choosedAnswerC = index;
+      this.lastQuestion = true;
+      this.choosedAnswerC = index;
 
-    if (choosedAnswer == this.rightAnswer.C) {
-      this.showPromptWihtTime();
+      if (choosedAnswer == this.rightAnswer.C) {
+        this.time3 = this.formatTime();
+      }
     }
   }
 
