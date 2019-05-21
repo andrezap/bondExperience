@@ -12,14 +12,16 @@ export class CodeProvider {
       HelperProvider.ROUGE_CODE_02,
       HelperProvider.ROUGE_CODE_03,
       HelperProvider.ROUGE_CODE_04,
-      HelperProvider.ROUGE_CODE_05
+      HelperProvider.ROUGE_CODE_05,
+      HelperProvider.ROUGE_CODE_06
     ];
     this.agentCodes = [
       HelperProvider.AGENT_CODE_01,
       HelperProvider.AGENT_CODE_02,
       HelperProvider.AGENT_CODE_03,
       HelperProvider.AGENT_CODE_04,
-      HelperProvider.AGENT_CODE_05
+      HelperProvider.AGENT_CODE_05,
+      HelperProvider.AGENT_CODE_06
     ];
   }
 
